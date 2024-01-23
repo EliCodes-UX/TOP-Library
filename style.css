@@ -23,3 +23,13 @@ body {
   border-radius: 15%;
   padding: 12px;
 }
+
+.bookModal {
+  position: fixed;
+  z-index: 1;
+  width: 50%;
+  height: 50%;
+  overflow: auto;
+  background-color: black;
+  color: aliceblue;
+}
