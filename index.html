@@ -36,7 +36,7 @@
               <input class="bookTitle" type="text" />
             </div>
             <div class="row3">
-              <label class="pagesTitle" for="pagesRead">Pages of books</label>
+              <label class="pagesTitle" for="pages">Pages of books</label>
               <input class="pages" type="number" name="pages" />
             </div>
             <div class="row4">
@@ -48,7 +48,17 @@
           <button type="submit" class="submitNewBook">Submit Book</button>
         </dialog>
         <!-- end modal section -->
-        <div class="bookTable"></div>
+        <div class="bookTable">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Pages</th>
+              <th>Read</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </div>
       </div>
     </div>
     <footer class="footer">
