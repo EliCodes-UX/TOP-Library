@@ -17,7 +17,9 @@ cancelBookModalBtn.addEventListener('click', () => {
   bookModal.close();
 });
 
-submitNewBookBtn.addEventListener('submit', e => {
+addBookForm.addEventListener('submit', e => {
+  console.log('form submitted');
+  e.preventDefault();
   const inputs = returnInputs(addBookForm);
   addBookToLibrary(inputs.title, inputs.author, inputs.pages, inputs.read);
 });
@@ -49,6 +51,5 @@ function returnInputs(form) {
     }
     values[input.name] = input.value;
   }
-  // return values;
-  console.log(new book());
+  return values;
 }
