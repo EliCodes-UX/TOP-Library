@@ -24,8 +24,26 @@
         <button class="addBook openModal">Add New Book</button>
         <!-- modal section -->
         <dialog class="bookModal">
-          <p>basic book modal</p>
-          <button class="cancelBook">Cancel</button>
+          <form action="get" class="bookForm">
+            <div class="author">
+              <label for="author">Author</label>
+              <input type="text" />
+            </div>
+            <div class="bookTitle">
+              <label for="bookTitle">Title of Book</label>
+              <input type="text" />
+            </div>
+            <div class="pages">
+              <label for="pagesRead">Pages of books</label>
+              <input type="number" name="pages" />
+            </div>
+            <div class="ifRead">
+              <label for="ifRead">Have You Read</label>
+              <input type="checkbox" />
+            </div>
+          </form>
+          <button type="reset" class="cancelBook">Cancel</button>
+          <button type="submit">Submit Book</button>
         </dialog>
         <!-- end modal section -->
       </div>
