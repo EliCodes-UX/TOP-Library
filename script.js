@@ -2,7 +2,6 @@ const myLibrary = [];
 const bookModal = document.querySelector('.bookModal');
 const addBookModalBtn = document.querySelector('.openModal');
 const cancelBookModalBtn = document.querySelector('.cancelBook');
-const submitNewBookBtn = document.querySelector('.submitNewBook');
 const addBookForm = document.querySelector('.bookForm');
 const newAuthor = document.querySelector('.author');
 const newTitle = document.querySelector('.bookTitle');
@@ -11,9 +10,11 @@ const newRead = document.querySelector('.ifRead');
 const bookList = document.querySelector('.bookTable');
 
 addBookModalBtn.addEventListener('click', () => {
+  console.log('clicked');
   bookModal.showModal();
 });
 cancelBookModalBtn.addEventListener('click', () => {
+  console.log('clicked');
   bookModal.close();
 });
 
