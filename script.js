@@ -24,14 +24,13 @@ document.querySelector('.submitNewBook').addEventListener('click', () => {
   console.log('Submit Book button clicked');
   const inputs = returnInputs(addBookForm);
   addBookToLibrary(inputs.title, inputs.author, inputs.pages, inputs.read);
-  console.log(inputs);
 });
 // function submit() {}
 
 class book {
-  constructor(name, author, pages, read) {
-    this.name = name;
+  constructor(author, title, pages, read) {
     this.author = author;
+    this.title = title;
     this.pages = pages;
     this.read = read;
   }
@@ -42,17 +41,19 @@ class book {
 }
 
 const addBookToLibrary = inputs => {
+  console.log('Adding book to library:', inputs);
   // Check if 'inputs' is defined and has the expected properties
   if (
     inputs &&
-    inputs.title &&
     inputs.author &&
+    inputs.title &&
     inputs.pages &&
     inputs.read !== undefined
   ) {
     myLibrary.push(
-      new book(inputs.title, inputs.author, inputs.pages, inputs.read)
+      new book(inputs.author, inputs.title, inputs.pages, inputs.read)
     );
+    console.log('myLibrary:', myLibrary);
   } else {
     console.error('Invalid inputs:', inputs);
   }
@@ -62,11 +63,13 @@ function returnInputs(form) {
   const inputs = form.querySelectorAll('input');
   let values = {};
   for (const input of inputs) {
+    console.log('Input:', input.name, input.value); // Log each input
     if (input.type === 'checkbox') {
       values[input.name] = input.checked;
       continue;
     }
     values[input.name] = input.value;
   }
+  console.log('Inputs', values);
   return values;
 }
