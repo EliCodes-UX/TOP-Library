@@ -2,12 +2,14 @@ const myLibrary = [];
 const bookModal = document.querySelector('.bookModal');
 const addBookModalBtn = document.querySelector('.openModal');
 const cancelBookModalBtn = document.querySelector('.cancelBook');
-const addBookForm = document.querySelector('.bookForm');
+const addBookForm = document.querySelector('.addBookModal');
+const addBookFormBtn = document.querySelector('.submitNewBook');
 const newAuthor = document.querySelector('.author');
 const newTitle = document.querySelector('.bookTitle');
 const newPages = document.querySelector('.pages');
 const newRead = document.querySelector('.ifRead');
 const bookList = document.querySelector('.bookTable');
+console.log(addBookForm);
 
 addBookModalBtn.addEventListener('click', () => {
   console.log('clicked');
@@ -18,12 +20,13 @@ cancelBookModalBtn.addEventListener('click', () => {
   bookModal.close();
 });
 
-addBookForm.addEventListener('submit', e => {
-  console.log('form submitted');
-  e.preventDefault();
-  const inputs = returnInputs(addBookForm);
-  addBookToLibrary(inputs.title, inputs.author, inputs.pages, inputs.read);
+document.querySelector('.submitNewBook').addEventListener('click', () => {
+  console.log('Submit Book button clicked');
+  addBookForm.submit(); // Manually submit the form
 });
+// event.preventDefault();
+// const inputs = returnInputs(addBookForm);
+// addBookToLibrary(inputs.title, inputs.author, inputs.pages, inputs.read);
 
 class book {
   constructor(name, author, pages, read) {

@@ -24,7 +24,7 @@
         <button class="addBook openModal">Add New Book</button>
         <!-- modal section -->
         <dialog class="bookModal">
-          <form method="dialog" class="bookForm">
+          <form method="dialog" class="addBookModal">
             <div class="row1">
               <label class="authorTitle" for="author">Author</label>
               <input class="author" type="text" />
@@ -44,8 +44,10 @@
               <input type="checkbox" class="ifRead" />
             </div>
           </form>
-          <button type="reset" class="cancelBook">Cancel</button>
-          <button type="submit" class="submitNewBook">Submit Book</button>
+          <div class="modalFooter">
+            <button type="reset" class="cancelBook">Cancel</button>
+            <button type="submit" class="submitNewBook">Submit Book</button>
+          </div>
         </dialog>
         <!-- end modal section -->
         <div class="bookTable">
