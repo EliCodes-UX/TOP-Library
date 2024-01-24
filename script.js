@@ -22,7 +22,7 @@ cancelBookModalBtn.addEventListener('click', () => {
 
 document.querySelector('.submitNewBook').addEventListener('click', () => {
   console.log('Submit Book button clicked');
-  addBookForm.submit(); // Manually submit the form
+  addBookForm.submit();
 });
 // event.preventDefault();
 // const inputs = returnInputs(addBookForm);
