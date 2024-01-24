@@ -3,7 +3,7 @@ const bookModal = document.querySelector('.bookModal');
 const addBookModalBtn = document.querySelector('.openModal');
 const cancelBookModalBtn = document.querySelector('.cancelBook');
 const addBookForm = document.querySelector('.addBookModal');
-const addBookFormBtn = document.querySelector('.submitNewBook');
+// const addBookFormBtn = document.querySelector('.submitNewBook');
 const newAuthor = document.querySelector('.author');
 const newTitle = document.querySelector('.bookTitle');
 const newPages = document.querySelector('.pages');
@@ -22,11 +22,11 @@ cancelBookModalBtn.addEventListener('click', () => {
 
 document.querySelector('.submitNewBook').addEventListener('click', () => {
   console.log('Submit Book button clicked');
-  addBookForm.submit();
+  const inputs = returnInputs(addBookForm);
+  addBookToLibrary(inputs.title, inputs.author, inputs.pages, inputs.read);
+  console.log(inputs);
 });
-// event.preventDefault();
-// const inputs = returnInputs(addBookForm);
-// addBookToLibrary(inputs.title, inputs.author, inputs.pages, inputs.read);
+// function submit() {}
 
 class book {
   constructor(name, author, pages, read) {
@@ -41,8 +41,21 @@ class book {
   }
 }
 
-const addBookToLibrary = (title, author, pages, read) => {
-  myLibrary.push(new book(title, author, pages, read));
+const addBookToLibrary = inputs => {
+  // Check if 'inputs' is defined and has the expected properties
+  if (
+    inputs &&
+    inputs.title &&
+    inputs.author &&
+    inputs.pages &&
+    inputs.read !== undefined
+  ) {
+    myLibrary.push(
+      new book(inputs.title, inputs.author, inputs.pages, inputs.read)
+    );
+  } else {
+    console.error('Invalid inputs:', inputs);
+  }
 };
 
 function returnInputs(form) {
