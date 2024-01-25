@@ -12,19 +12,18 @@ const bookList = document.querySelector('.bookTable');
 console.log(addBookForm);
 
 addBookModalBtn.addEventListener('click', () => {
-  console.log('clicked');
   bookModal.showModal();
 });
 cancelBookModalBtn.addEventListener('click', () => {
-  console.log('clicked');
   bookModal.close();
+  addBookForm.reset();
 });
 
 document.querySelector('.submitNewBook').addEventListener('click', event => {
-  console.log('Submit Book button clicked');
   event.preventDefault();
   const inputs = returnInputs(addBookForm);
   addBookToLibrary(inputs);
+  addBookForm.reset();
 });
 
 class book {
@@ -44,20 +43,17 @@ function returnInputs(form) {
   const inputs = form.querySelectorAll('input');
   let values = {};
   for (const input of inputs) {
-    console.log('Input:', input.name, input.value);
     if (input.type === 'checkbox') {
       values[input.name] = input.checked;
       continue;
     }
     values[input.name] = input.value;
   }
-  console.log('Inputs', values);
+
   return values;
 }
 
 const addBookToLibrary = inputs => {
-  console.log('Adding book to library:', inputs);
-
   if (
     inputs &&
     inputs.author &&
@@ -68,8 +64,45 @@ const addBookToLibrary = inputs => {
     myLibrary.push(
       new book(inputs.author, inputs.title, inputs.pages, inputs.read)
     );
-    console.log('myLibrary:', myLibrary);
+    updateBookDisplay();
   } else {
     console.error('Invalid inputs:', inputs);
   }
 };
+
+function updateBookDisplay() {
+  while (bookList.lastElementChild) {
+    bookList.removeChild(bookList.lastElementChild);
+  }
+  for (let i = 0; i < myLibrary.length; i++) {
+    const book = myLibrary[i];
+    const title = document.createElement('td');
+    title.textContent = book.title;
+    const author = document.createElement('td');
+    author.textContent = book.author;
+    const pages = document.createElement('td');
+    pages.textContent = book.pages;
+
+    const read = document.createElement('td');
+    const toggleBtn = document.createElement('button');
+    toggleBtn.type = 'button';
+    toggleBtn.dataset.action = 'toggle';
+    toggleBtn.textContent = book.read ? 'Yes' : 'No';
+    toggleBtn.className = book.read ? 'toggle-btn read' : 'toggle-btn';
+    read.appendChild(toggleBtn);
+
+    const deleteTd = document.createElement('td');
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.type = 'button';
+    deleteBtn.dataset.action = 'delete';
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.textContent = 'DELETE';
+    deleteTd.appendChild(deleteBtn);
+
+    const row = document.createElement('tr');
+    row.dataset.index = i;
+    row.append(author, title, pages, read, deleteTd);
+    bookList.appendChild(row);
+  }
+}
