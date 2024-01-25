@@ -1,13 +1,13 @@
 const myLibrary = [];
-const bookModal = document.querySelector('.bookModal');
-const addBookModalBtn = document.querySelector('.openModal');
-const cancelBookModalBtn = document.querySelector('.cancelBook');
-const addBookForm = document.querySelector('.addBookModal');
 // const addBookFormBtn = document.querySelector('.submitNewBook');
 // const newAuthor = document.querySelector('.author');
 // const newTitle = document.querySelector('.title');
 // const newPages = document.querySelector('.pages');
 // const newRead = document.querySelector('.ifRead');
+const bookModal = document.querySelector('.bookModal');
+const addBookModalBtn = document.querySelector('.openModal');
+const cancelBookModalBtn = document.querySelector('.cancelBook');
+const addBookForm = document.querySelector('.addBookModal');
 const bookList = document.querySelector('.bookTable');
 console.log(addBookForm);
 
@@ -24,9 +24,8 @@ document.querySelector('.submitNewBook').addEventListener('click', event => {
   console.log('Submit Book button clicked');
   event.preventDefault();
   const inputs = returnInputs(addBookForm);
-  addBookToLibrary(inputs); // Pass the entire inputs object
+  addBookToLibrary(inputs);
 });
-// function submit() {}
 
 class book {
   constructor(author, title, pages, read) {
