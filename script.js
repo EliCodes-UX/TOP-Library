@@ -1,9 +1,5 @@
 const myLibrary = [];
-// const addBookFormBtn = document.querySelector('.submitNewBook');
-// const newAuthor = document.querySelector('.author');
-// const newTitle = document.querySelector('.title');
-// const newPages = document.querySelector('.pages');
-// const newRead = document.querySelector('.ifRead');
+
 const bookModal = document.querySelector('.bookModal');
 const addBookModalBtn = document.querySelector('.openModal');
 const cancelBookModalBtn = document.querySelector('.cancelBook');
@@ -71,15 +67,17 @@ const addBookToLibrary = inputs => {
 };
 
 function updateBookDisplay() {
-  while (bookList.lastElementChild) {
-    bookList.removeChild(bookList.lastElementChild);
-  }
+  bookList.innerHTML = '';
+
   for (let i = 0; i < myLibrary.length; i++) {
     const book = myLibrary[i];
+
     const title = document.createElement('td');
     title.textContent = book.title;
+
     const author = document.createElement('td');
     author.textContent = book.author;
+
     const pages = document.createElement('td');
     pages.textContent = book.pages;
 
@@ -92,7 +90,6 @@ function updateBookDisplay() {
     read.appendChild(toggleBtn);
 
     const deleteTd = document.createElement('td');
-
     const deleteBtn = document.createElement('button');
     deleteBtn.type = 'button';
     deleteBtn.dataset.action = 'delete';
@@ -106,3 +103,15 @@ function updateBookDisplay() {
     bookList.appendChild(row);
   }
 }
+
+bookList.addEventListener('click', event => {
+  const target = event.target;
+
+  if (target.dataset.action === 'delete') {
+    const rowIndex = target.closest('tr').dataset.index;
+
+    myLibrary.splice(rowIndex, 1);
+
+    updateBookDisplay();
+  }
+});
