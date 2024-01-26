@@ -24,32 +24,35 @@
         <button class="addBook openModal">Add New Book</button>
         <!-- modal section -->
         <dialog class="bookModal">
-          <form method="dialog" class="addBookModal">
-            <div class="row1">
-              <label class="authorTitle" for="author">Author</label>
-              <input class="author" type="text" name="author" />
+          <div class="modalContent">
+            <form method="dialog" class="addBookModal">
+              <div class="row 1">
+                <label class="authorTitle" for="author">Author</label>
+                <input class="author" type="text" name="author" />
+              </div>
+              <div class="row 2">
+                <label class="bookTitleLabel" for="title">Title of Book</label>
+                <input class="title" type="text" name="title" />
+              </div>
+              <div class="row 3">
+                <label class="pagesTitle" for="pages">Pages of books</label>
+                <input class="pages" type="number" name="pages" />
+              </div>
+              <div class="row 4">
+                <label for="ifRead" class="ifReadTitle">Have You Read</label>
+                <input type="checkbox" class="ifRead" name="read" />
+              </div>
+            </form>
+
+            <div class="modalFooter">
+              <button type="reset" class="cancelBook">Cancel</button>
+              <button type="submit" class="submitNewBook">Submit</button>
             </div>
-            <div class="row2">
-              <label class="bookTitleLabel" for="title">Title of Book</label>
-              <input class="title" type="text" name="title" />
-            </div>
-            <div class="row3">
-              <label class="pagesTitle" for="pages">Pages of books</label>
-              <input class="pages" type="number" name="pages" />
-            </div>
-            <div class="row4">
-              <label for="ifRead" class="ifReadTitle">Have You Read</label>
-              <input type="checkbox" class="ifRead" name="read" />
-            </div>
-          </form>
-          <div class="modalFooter">
-            <button type="reset" class="cancelBook">Cancel</button>
-            <button type="submit" class="submitNewBook">Submit Book</button>
           </div>
         </dialog>
         <!-- end modal section -->
-        <div class="bookTable">
-          <thead>
+        <table>
+          <thead class="bookTableHeader">
             <tr>
               <th>Title</th>
               <th>Author</th>
@@ -57,8 +60,8 @@
               <th>Read</th>
             </tr>
           </thead>
-          <tbody></tbody>
-        </div>
+          <tbody class="bookTable"></tbody>
+        </table>
       </div>
     </div>
     <footer class="footer">

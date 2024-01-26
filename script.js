@@ -8,7 +8,7 @@ const bookList = document.querySelector('.bookTable');
 console.log(addBookForm);
 
 addBookModalBtn.addEventListener('click', () => {
-  bookModal.setAttribute('open', true);
+  bookModal.showModal();
 });
 
 cancelBookModalBtn.addEventListener('click', () => {
@@ -21,6 +21,7 @@ document.querySelector('.submitNewBook').addEventListener('click', event => {
   const inputs = returnInputs(addBookForm);
   addBookToLibrary(inputs);
   addBookForm.reset();
+  bookModal.close();
 });
 
 class book {

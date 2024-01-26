@@ -24,22 +24,35 @@ body {
   padding: 12px;
 }
 
+.openModal {
+  background: linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+  background-color: #44c767;
+  border-radius: 42px;
+  border: 6px solid #4bb355;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 12px 36px;
+  text-decoration: none;
+  text-shadow: 0px 0px 10px #2f6627;
+}
+.openModal:hover {
+  background: linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+  background-color: #5cbf2a;
+}
+.openModal:active {
+  position: relative;
+  top: 1px;
+}
+
 .bookModal {
-  position: fixed;
+  position: absolute;
   z-index: 1;
-  top: 30%;
-  left: 0%;
-  padding: 20px;
-  overflow: auto;
-  background-color: dimgray;
-  color: aliceblue;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border: 0.4vw solid whitesmoke;
+  background-color: burlywood;
+  border: 0.3em solid black;
   border-radius: 15%;
-  box-shadow: 9px 14px 16px rgb(110 101 68);
 }
 
 .row {
@@ -47,6 +60,98 @@ body {
   padding: 10px;
   flex-direction: column;
   align-items: center;
+}
+.modalFooter {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+.cancelBook {
+  margin: 0.3em;
+}
+.cancelBook {
+  background: linear-gradient(to bottom, #c74545 5%, #bd2aa0 100%);
+  background-color: #c74545;
+  border-radius: 42px;
+  border: 6px solid #b34b4b;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 12px 36px;
+  text-decoration: none;
+  text-shadow: 0px 0px 10px #66285a;
+}
+.cancelBook:hover {
+  background: linear-gradient(to bottom, #bd2aa0 5%, #c74545 100%);
+  background-color: #bd2aa0;
+}
+.cancelBook:active {
+  position: relative;
+  top: 1px;
+}
+
+.submitNewBook {
+  margin: 0.3em;
+}
+.submitNewBook {
+  background: linear-gradient(to bottom, #44c767 5%, #5cbf2a 100%);
+  background-color: #44c767;
+  border-radius: 42px;
+  border: 6px solid #4bb355;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 15px;
+  padding: 12px 36px;
+  text-decoration: none;
+  text-shadow: 0px 0px 10px #2f6627;
+}
+.submitNewBook:hover {
+  background: linear-gradient(to bottom, #5cbf2a 5%, #44c767 100%);
+  background-color: #5cbf2a;
+}
+.submitNewBook:active {
+  position: relative;
+  top: 1px;
+}
+
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+.bookTableHeader {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-bottom: 3px solid black;
+}
+.bookTable {
+  height: 300px;
+  overflow-x: auto;
+  margin-top: 0px;
+  border: 1px solid rgb(0, 0, 0);
+}
+tr {
+  border-bottom: 2px solid black;
+}
+th {
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 20px;
+  color: black;
+  text-transform: uppercase;
+  border-bottom: 2px solid black;
+}
+td {
+  padding: 15px;
+  text-align: left;
+  vertical-align: middle;
+  font-weight: 300;
+  font-size: 15px;
+  color: black;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.1);
 }
 
 .footer {
